@@ -1,0 +1,7 @@
+create table report(stu_id int primary key,s_name varchar(10),Department text,Address text,CGPA float);
+#insert values into the table
+insert into report values(1,"AAA","Mech","Rasipuram",7.8),(2,"BBB","Biomed","Namakkal",8.7),
+(3,"CCC","Civil","Kovai",7.5),(4,"DDD","Medical Electronics","Salem",8.9),(5,"EEE","Aeronautics","Chennai",7.6);
+#To view data in the table
+select*from report;
+                   
