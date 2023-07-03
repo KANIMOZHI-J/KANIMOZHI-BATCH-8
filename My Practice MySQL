@@ -1,0 +1,14 @@
+create table Students(student_id int primary key,student_name varchar(50),student_age int,student_major varchar(50));
+#insert values into the table
+insert into Students values(1,"Ananya",20,"CSE"),(2,"Birunda",21,"MDE"),(3,"Chitra",18,"CSE"),(4,"Dharani",22,"ECE"),(5,"Elakiya",19,"CIV");
+select*from Students;
+#retrieve names of students major in CSE
+select*from Students where student_major="CSE"; 
+#retrieve oldest students
+select*from Students where student_age<21;
+#update the major of students
+update Students set student_major="Science" where student_id="2";
+select*from Students;
+#delete a student from studentid
+delete from Students where student_id=1 ;
+select*from Students;
