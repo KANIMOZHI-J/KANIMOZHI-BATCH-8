@@ -1,0 +1,35 @@
+create database BooksDB;
+#create table to insert values
+create table Books(a_id int primary key,book_title text,a_name varchar(30),genre text,publication_year year,price int);
+#insert values into Books
+insert into Books values(01,"SQL Antipattern","Ronaldo","Novels",2015,365),(02,"SQL Cookbook","Churchill","Fiction",2015,548),(03,"Learning SQL","Dhoni","Novels",2015,976),(04,"Practice SQL","Elon Musk","Story",2015,158),(05,"SQL Antipattern","Messi","Tales",2015,7836);
+#retrieve all books from database
+select*from Books;
+#retrieve details of books based on book_title
+select*from Books where book_title="SQL Antipattern";
+#update price of Books
+update Books set price=400 where price=365;
+select*from Books;
+#delete a book from a database based on book_title
+delete from Books where book_title="SQL Antipattern";
+select*from Books;
+#calculate and display average price of all books in database
+select AVG(price) from Books;
+#CREATE another table
+create table author(s_no int primary key,author_name varchar(50),
+                    a_age int,a_city varchar(80),a_id int ,constraint fk_a_id 
+                    foreign key(a_id) references Books(a_id));
+#insert values in author table
+insert into author values(01,"AAA",45,"Salem",03),(02,"BBB",56,"Kovai",02),(03,"Madurai",42,"Chennai",01),
+                          (04,"DDD",60,"Karur",05),(05,"EEE",55,"Trichy",04);
+select*from author;
+#join the table
+select Books.a_id,Books.a_name,Books.book_title,Books.price,author.author_name 
+                from Books inner join author on Books.s_no=s_no order by a_id;
+#right join
+select Books.a_id,Books.a_name,Books.book_title,Books.price,author.author_name 
+                from Books right join author on Books.s_no=s_no order by a_id;
+#left join
+select Books.a_id,Books.a_name,Books.book_title,Books.price,author.author_name 
+                from Books left join author on Books.s_no=s_no order by a_id;
+
