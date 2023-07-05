@@ -1,0 +1,29 @@
+#create database
+#create table1
+create table  Market(s_no int primary key,goods text,prices int,
+                      merchant varchar(20));
+#insert values into table1
+insert into Market values(1,"Veg",6589,"Farmer"),(2,"Dress",7878,"Seller"),(3,"Toys",8875,"Shopkeeper"),
+                         (4,"Meat",7284,"Butcher"),(5,"Oil",46755,"Vendor");
+select*from Market;
+#create table2
+create table Customers(c_id int primary key,c_name text,c_pprice int,c_city text,s_no int,constraint fk_s_no foreign key(s_no) references 
+                       Market(s_no));
+#insert values into table2
+insert into Customers values(11,"Anu",5865,"Kovai",2),(12,"Banu",78657,"Salem",5),(13,"Charu",4315,"Nagai",3),
+                             (14,"Diya",3356,"Madurai",1),(15,"Eniya",6578,"Pondi",4);
+select*from Customers;
+#order of customers based on purchased price
+select*from Customers order by c_pprice desc;
+#inner join
+select Market.s_no,Market.goods,Market.prices,Market.merchant,Customers.c_name  
+                   from Market inner join Customers on Market.s_no=Customers.s_no order by s_no;
+#right join
+select Market.s_no,Market.goods,Market.prices,Market.merchant,Customers.c_name  
+                   from Market right join Customers on Market.s_no=Customers.s_no order by s_no;
+#left join
+select Market.s_no,Market.goods,Market.prices,Market.merchant,Customers.c_name  
+                   from Market left join Customers on Market.s_no=Customers.s_no order by s_no;
+#top three customers based on price
+select*from Customers where c_pprice>5000;
+
